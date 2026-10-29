@@ -1,0 +1,9 @@
+-r requirements.txt
+# Optional local text-to-image diffusion model; very slow/memory-intensive on CPU
+# Use a Python/Torch combination supported by the official PyTorch install selector.
+torch>=2.2.0
+diffusers>=0.32.0,<1.0.0
+transformers>=4.44.0,<5.0.0
+accelerate>=0.30.0
+safetensors>=0.4.0
+pillow>=10.0.0

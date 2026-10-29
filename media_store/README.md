@@ -1,0 +1,1 @@
+Runtime media storage directory. Uploaded/generated media bytes are written as encrypted `.enc` files; `manifest.jsonl` records signed metadata and original SHA-256 hashes. Do not commit real media, manifests, or `.secrets/` keys to a public repository. Back up encryption keys securely.

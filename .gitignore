@@ -1,0 +1,14 @@
+.env
+.venv/
+__pycache__/
+*.py[cod]
+.pytest_cache/
+.secrets/
+audit_logs/
+knowledge_base/*.enc
+knowledge_base/.integrity_manifest.json
+knowledge_base/*.sig
+
+# Encrypted media vault contents (keep only README.md in source control)
+media_store/*.enc
+media_store/manifest.jsonl

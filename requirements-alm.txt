@@ -1,0 +1,3 @@
+-r requirements.txt
+# Optional local speech-to-text model (CPU int8; downloads Whisper weights on first use)
+faster-whisper>=1.1.0
