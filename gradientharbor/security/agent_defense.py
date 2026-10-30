@@ -74,7 +74,9 @@ def inspect_agent_handoff(text: str, source: str = "agent_handoff") -> dict[str,
     if injection.get("risk_score", 0) >= 5:
         return {"allowed": False, "decision": "blocked", "signals": signals, "reason": "High-risk instruction-override or exfiltration signal at agent boundary."}
     if injection.get("risk_score", 0) >= 3:
-        return {"allowed": True, "decision": "review", "signals": signals, "reason": "Suspicious text flagged for review; treat it only as untrusted data."}
+        # Review is not authorization. Callers must explicitly handle this state and
+        # must not pass the handoff to tools or downstream model stages automatically.
+        return {"allowed": False, "decision": "review", "signals": signals, "reason": "Suspicious text requires human review and is not authorized for downstream execution."}
     return {"allowed": True, "decision": "allowed", "signals": signals, "reason": "No configured high-risk signal matched; this is not proof of safety."}
 
 

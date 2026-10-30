@@ -37,6 +37,11 @@ class AgentDefenseTests(unittest.TestCase):
         result = inspect_agent_handoff("The dataset contains 500 rows and revenue totals 12000.")
         self.assertTrue(result["allowed"])
 
+    def test_review_handoff_is_not_authorized(self):
+        result = inspect_agent_handoff("These are instructions for the assistant.")
+        self.assertEqual(result["decision"], "review")
+        self.assertFalse(result["allowed"])
+
     def test_context_is_bounded_and_labeled(self):
         result = untrusted_context_block("retrieved doc", "x" * 100, max_chars=12)
         self.assertIn("UNTRUSTED_DATA_JSON", result)
